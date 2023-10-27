@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        android:layout_margin="10dp"
+        android:background="@drawable/rounded_white_back"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/image_avatar"
+            android:padding="4dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/icon_theme_black"/>
+
+        <TextView
+            android:id="@+id/text_cardName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:padding="10dp"
+            android:text="Название"
+            android:textColor="#000000"
+            android:fontFamily="@font/main_font"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

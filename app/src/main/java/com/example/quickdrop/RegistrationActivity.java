@@ -100,12 +100,13 @@ public class RegistrationActivity extends AppCompatActivity {
 
                 HashMap<String , Object> map = new HashMap<>();
                 map.put("name" , name);
-                map.put("username" , surname);
+                map.put("surname" , surname);
                 map.put("lastname" , lastname);
                 map.put("email", email);
                 map.put("password", password);
                 map.put("history", "");
                 map.put("order", "");
+                map.put("paytype", "");
                 map.put("id" , auth.getCurrentUser().getUid());
 
                 mRootRef.child("Users").child(auth.getCurrentUser().getUid()).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
