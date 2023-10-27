@@ -6,6 +6,8 @@ import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -29,7 +31,7 @@ public class EnteresActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enteres);
-        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.white));
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.main_color));
 
 
 
@@ -50,16 +52,38 @@ public class EnteresActivity extends AppCompatActivity {
         linear_continue.setOnClickListener(view -> {
             if(!edittext_login.getText().toString().isEmpty() && !edittext_password.getText().toString().isEmpty()){
                 loginUser(edittext_login.getText().toString() , edittext_password.getText().toString());
+            }else{
+                setError();
             }
+        });
+
+        edittext_login.addTextChangedListener(new TextWatcher() {
+            @Override public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+            @Override public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                edittext_login.setBackgroundResource(R.drawable.background_edite_text);
+            }
+            @Override public void afterTextChanged(Editable editable) {}
+        });
+
+        edittext_password.addTextChangedListener(new TextWatcher() {
+            @Override public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+            @Override public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                edittext_password.setBackgroundResource(R.drawable.background_edite_text);
+            }
+            @Override public void afterTextChanged(Editable editable) {}
         });
     }
 
+    private void setError(){
+        edittext_login.setBackgroundResource(R.drawable.background_edit_text_red);
+        edittext_password.setBackgroundResource(R.drawable.background_edit_text_red);
+    }
 
-    private void loginUser(String email, String password) {
 
+    private void loginUser(String email, String password){
         auth.signInWithEmailAndPassword(email , password).addOnCompleteListener(task -> {
             if (task.isSuccessful()){
-                Toast.makeText(EnteresActivity.this, "Вы вошли", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EnteresActivity.this, "Мы рады Вас видеть", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(EnteresActivity.this , ProfileActivity.class);
                 intent.putExtra("user_email", email);
                 intent.putExtra("user_password", password);
@@ -67,7 +91,10 @@ public class EnteresActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }).addOnFailureListener(e -> Toast.makeText(EnteresActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show());
+        }).addOnFailureListener(e -> {
+            edittext_password.setText("");
+            setError();
+        });
 
     }
 }

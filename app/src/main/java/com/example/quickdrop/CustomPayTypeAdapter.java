@@ -42,7 +42,6 @@ public class CustomPayTypeAdapter extends ArrayAdapter {
             text_cardName.setTextColor(0xFFC1C1C1);
         }else{
             text_cardName.setText(String.valueOf(arr.get(position).getCardName()));
-            //image_avatar.setImageResource();
         }
 
         return view;

@@ -3,7 +3,7 @@ package com.example.quickdrop;
 public class PayType {
     private final long cardName;
     private final String date;
-    private final short cvs;
+    private final int cvs;
 
     public PayType(){
         this.cardName = 0;
@@ -30,5 +30,5 @@ public class PayType {
                 number % 10000);
     }
     public String getDate() {return date;}
-    public short getCvs() {return cvs;}
+    public int getCvs() {return cvs;}
 }

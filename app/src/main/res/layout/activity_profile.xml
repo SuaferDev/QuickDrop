@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="20dp"
-        android:paddingEnd="20dp"
         android:paddingStart="20dp"
         android:orientation="vertical">
 
@@ -25,7 +24,7 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:padding="4dp"
-                android:src="@drawable/icon_back_black"/>
+                android:src="@drawable/icon_back_gray"/>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -33,17 +32,11 @@
                 android:layout_weight="1"/>
 
             <ImageView
-                android:id="@+id/image_theme"
-                android:padding="4dp"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:src="@drawable/icon_theme_black"/>
-            <ImageView
                 android:id="@+id/image_help"
-                android:padding="4dp"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:src="@drawable/icon_help_black"/>
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/icon_setting"/>
         </LinearLayout>
 
         <LinearLayout
@@ -70,20 +63,9 @@
                     android:padding="4dp"
                     android:text="Имя Пользователеля"
                     android:textSize="20sp"
-                    android:textColor="#000000"
-                    tools:ignore="HardcodedText"
-                    android:textStyle="bold"
-                    android:gravity="center"/>
-
-                <TextView
-                    android:id="@+id/text_level"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:padding="4dp"
-                    android:text="10"
-                    android:textSize="12sp"
                     android:textColor="#FFFFFF"
                     tools:ignore="HardcodedText"
+                    android:fontFamily="@font/main_font"
                     android:textStyle="bold"
                     android:gravity="center"/>
 
@@ -102,13 +84,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Способы оплаты"
-                android:textSize="14sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
+                android:paddingTop="8dp"
+                android:paddingStart="8dp"
                 android:padding="8dp"
                 android:gravity="center"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 tools:ignore="HardcodedText"
                 android:layout_weight="1"
+                android:fontFamily="@font/main_font"
                 android:background="@drawable/background_case"/>
 
             <TextView
@@ -119,9 +104,11 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:padding="8dp"
+                android:layout_marginEnd="20dp"
                 android:gravity="center"
                 android:textColor="#FFFFFF"
                 android:layout_weight="1"
+                android:fontFamily="@font/main_font"
                 tools:ignore="HardcodedText" />
         </LinearLayout>
 
@@ -130,7 +117,7 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:paddingTop="8dp"
-            android:background="#CDCDCD"
+            android:background="@drawable/list_background"
             android:orientation="horizontal"/>
 
         <LinearLayout
@@ -144,26 +131,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Активные Заказы"
-                android:textSize="14sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 android:padding="8dp"
                 android:gravity="center"
-                android:textColor="#000000"
+                android:textColor="#131313"
                 tools:ignore="HardcodedText"
                 android:layout_weight="1"
-                android:background="@drawable/background_choose"/>
+                android:fontFamily="@font/main_font"
+                android:background="@drawable/button_background"/>
 
             <TextView
                 android:id="@+id/text_order_history"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="История заказов"
-                android:textSize="14sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 android:padding="8dp"
                 android:gravity="center"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 android:layout_weight="1"
+                android:fontFamily="@font/main_font"
                 tools:ignore="HardcodedText" />
         </LinearLayout>
 
@@ -191,10 +180,11 @@
                 android:id="@+id/text_check"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 android:gravity="center"
+                android:fontFamily="@font/main_font"
                 android:layout_weight="1"/>
         </LinearLayout>
     </FrameLayout>
