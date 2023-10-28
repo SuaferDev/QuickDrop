@@ -29,12 +29,12 @@ public class CustomProductAdapter extends ArrayAdapter {
 
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.custom_card, parent, false);
+            view = inflater.inflate(R.layout.custom_product_element, parent, false);
         }
         TextView text_name = view.findViewById(R.id.text_name);
         TextView text_price = view.findViewById(R.id.text_price);
         text_name.setText(arr.get(position).getName());
-        text_price.setText(arr.get(position).getName());
+        text_price.setText(String.valueOf(arr.get(position).getPrice()));
 
         return view;
     }

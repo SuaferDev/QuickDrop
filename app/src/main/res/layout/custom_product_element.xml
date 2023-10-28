@@ -34,7 +34,7 @@
                     android:textSize="30sp"
                     android:padding="10dp"
                     android:text="000000"
-                    android:textColor="#000000"
+                    android:textColor="#FFFFFF"
                     android:fontFamily="@font/main_font"
                     tools:ignore="HardcodedText" />
             </LinearLayout>
@@ -51,7 +51,7 @@
                     android:textSize="18sp"
                     android:padding="10dp"
                     android:text="Название"
-                    android:textColor="#000000"
+                    android:textColor="#FFFFFF"
                     android:fontFamily="@font/main_font"
                     tools:ignore="HardcodedText" />
             </LinearLayout>

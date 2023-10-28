@@ -48,8 +48,75 @@
         <ListView
             android:id="@+id/listOrder"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingTop="8dp"/>
+            android:layout_height="0dp"
+            android:paddingTop="8dp"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Адресс"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#B7B7B7"
+            android:gravity="end"
+            tools:ignore="HardcodedText"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/main_font"/>
+
+        <EditText
+            android:id="@+id/edittext_adress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textSize="22sp"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="20dp"
+            android:textColorHint="#B7B7B7"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/background_edite_text"
+            android:maxLines="1"
+            android:lines="1"
+            android:maxLength="24"
+            android:hint="Адресс"
+            android:fontFamily="@font/main_font"/>
+
+        <LinearLayout
+            android:id="@+id/linear_continue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end |center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ПРОДОЛЖИТЬ"
+                android:textSize="18sp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:textStyle="bold"
+                android:textColor="#131313"
+                android:layout_margin="10dp"
+                android:background="@drawable/button_background"
+                android:layout_gravity="center"
+                android:fontFamily="@font/main_font"
+                tools:ignore="HardcodedText" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/icon_back_white"
+                android:rotation="180"/>
+
+        </LinearLayout>
+
+
+
+
 
     </LinearLayout>
 
