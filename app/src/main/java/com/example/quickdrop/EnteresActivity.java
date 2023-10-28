@@ -85,7 +85,7 @@ public class EnteresActivity extends AppCompatActivity {
             if (task.isSuccessful()){
                 UserData.getInstance().setLogin(email);
                 Toast.makeText(EnteresActivity.this, "Мы рады Вас видеть", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(EnteresActivity.this , ProfileActivity.class);
+                Intent intent = new Intent(EnteresActivity.this , ShopActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();

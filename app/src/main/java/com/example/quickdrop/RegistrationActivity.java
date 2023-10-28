@@ -188,7 +188,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()){
                             Toast.makeText(RegistrationActivity.this, "Регистрация успешна", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(RegistrationActivity.this , ProfileActivity.class);
+                            Intent intent = new Intent(RegistrationActivity.this , ShopActivity.class);
                             intent.putExtra("user_email", email);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);

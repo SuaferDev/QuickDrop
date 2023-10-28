@@ -1,6 +1,7 @@
 package com.example.quickdrop;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ public class ShopActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop);
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.main_color));
 
         ImageView image_basket = findViewById(R.id.image_basket);
         ImageView image_avatar = findViewById(R.id.image_avatar);

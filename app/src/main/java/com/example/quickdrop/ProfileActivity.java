@@ -23,6 +23,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -171,5 +173,21 @@ public class ProfileActivity extends AppCompatActivity {
         dialog.setCancelable(false);
 
         dialog.show();
+    }
+
+    private void drone(){
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("drone");
+
+                String userId = "123";
+                String name = "John";
+
+                myRef.child(userId).child("name").setValue(name);
+            }
+        }, 0, 5000);
     }
 }

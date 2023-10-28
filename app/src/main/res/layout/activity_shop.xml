@@ -13,7 +13,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="12dp">
 
@@ -172,22 +172,6 @@
                     </LinearLayout>
 
 
-                    <LinearLayout
-                        android:id="@+id/linear_sber"
-                        android:layout_width="200dp"
-                        android:layout_height="120dp"
-                        android:padding="10dp"
-                        android:layout_marginStart="10dp"
-                        android:gravity="center"
-                        android:orientation="horizontal"
-                        android:background="@drawable/background_sber">
-
-                        <ImageView
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:src="@drawable/sberlogo"/>
-
-                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -202,8 +186,9 @@
                 android:textColor="#B7B7B7"
                 android:gravity="end"
                 tools:ignore="HardcodedText"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/main_font"/>
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/main_font"
+                android:layout_marginTop="20dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"

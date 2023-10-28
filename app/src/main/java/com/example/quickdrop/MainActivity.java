@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.main_color));
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.profile_color));
 
         TextView textEnteres = findViewById(R.id.textEnteres);
         TextView textCreateAccaunt = findViewById(R.id.textCreateAccaunt);

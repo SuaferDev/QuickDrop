@@ -11,7 +11,8 @@ public class Order {
     private final int status;
     private final int idDrone;
 
-    private final String adress;
+    private final double latitude;
+    private final double longitude;
 
     public Order(){
         this.id = 0;
@@ -21,10 +22,11 @@ public class Order {
         this.productId=0;
         this.status=0;
         this.idDrone = 0;
-        this.adress = "";
+        this.latitude = 0;
+        this.longitude = 0;
     }
 
-    public Order(int id, double price, double weight, int time, int productId, int status, int idDrone, String adress){
+    public Order(int id, double price, double weight, int time, int productId, int status, int idDrone, String adress, double latitude, double longitude){
         this.id = id;
         this.price=price;
         this.weight = weight;
@@ -32,7 +34,8 @@ public class Order {
         this.productId=productId;
         this.status=status;
         this.idDrone = idDrone;
-        this.adress = adress;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public int getId() {return id;}
