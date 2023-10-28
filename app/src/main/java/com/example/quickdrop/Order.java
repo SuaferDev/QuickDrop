@@ -9,6 +9,9 @@ public class Order {
     private final int time;
     private final int productId;
     private final int status;
+    private final int idDrone;
+
+    private final String adress;
 
     public Order(){
         this.id = 0;
@@ -17,15 +20,19 @@ public class Order {
         this.time=0;
         this.productId=0;
         this.status=0;
+        this.idDrone = 0;
+        this.adress = "";
     }
 
-    public Order(int id, double price, double weight, int time, int productId, int status){
+    public Order(int id, double price, double weight, int time, int productId, int status, int idDrone, String adress){
         this.id = id;
         this.price=price;
         this.weight = weight;
         this.time=time;
         this.productId=productId;
         this.status=status;
+        this.idDrone = idDrone;
+        this.adress = adress;
     }
 
     public int getId() {return id;}
@@ -34,6 +41,7 @@ public class Order {
     public int getTime() {return time;}
     public int getProductId() {return productId;}
     public int getStatus() {return status;}
+    public int getIdDrone() {return idDrone;}
 
     public String getStringStatus(){
         if(status==0){

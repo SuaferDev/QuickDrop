@@ -29,18 +29,18 @@ public class CustomOrderAdapter extends ArrayAdapter {
 
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.custom_card, parent, false);
+            view = inflater.inflate(R.layout.custom_order_element, parent, false);
         }
         LinearLayout linear_status = view.findViewById(R.id.linear_status);
         TextView text_orderNumber = view.findViewById(R.id.text_orderNumber);
         TextView text_status = view.findViewById(R.id.text_status);
         TextView text_time = view.findViewById(R.id.text_time);
 
-        text_orderNumber.setText(arr.get(position).getId());
-        text_status.setText(arr.get(position).getStringStatus());
+        text_orderNumber.setText(String.valueOf(arr.get(position).getId()));
+        text_status.setText(String.valueOf(arr.get(position).getStringStatus()));
 
         if(arr.get(position).getStatus()!=2){
-            text_time.setText(arr.get(position).getTime());
+            text_time.setText(String.valueOf(arr.get(position).getTime()));
             if(arr.get(position).getStatus()==0){
                 linear_status.setBackgroundResource(R.drawable.order_grey);
             }else{

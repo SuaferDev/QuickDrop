@@ -47,3 +47,4 @@ public class CustomPayTypeAdapter extends ArrayAdapter {
         return view;
     }
 }
+

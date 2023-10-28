@@ -4,8 +4,348 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ShopActivity">
+    tools:context=".ShopActivity"
+    android:background="#131313">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/logo_white"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:id="@+id/image_avatar"
+                    android:padding="8dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/avatar_grey"/>
+
+                <ImageView
+                    android:id="@+id/image_basket"
+                    android:padding="10dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/icon_basket_white"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="4dp"
+                android:gravity="center"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/background_choose">
+
+                <EditText
+                    android:id="@+id/edittext_search"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:textSize="20sp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#AEAEAE"
+                    android:background="#131313"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:lines="1"
+                    android:maxLength="24"
+                    android:hint="Поиск"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/main_font"/>
+
+                <ImageView
+                    android:id="@+id/image_search"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/icon_search"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Маркетплейсы"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#B7B7B7"
+                android:gravity="end"
+                tools:ignore="HardcodedText"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/main_font"/>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:id="@+id/linear_yandex"
+                        android:layout_width="200dp"
+                        android:layout_height="120dp"
+                        android:padding="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:background="@drawable/background_yandex">
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:src="@drawable/yandexlogo"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingStart="10dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Яндекс"
+                                android:textSize="26sp"
+                                android:textStyle="bold"
+                                android:textColor="#131313"
+                                android:gravity="center"
+                                tools:ignore="HardcodedText"
+                                android:fontFamily="@font/main_font"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Маркет"
+                                android:textSize="26sp"
+                                android:textStyle="bold"
+                                android:textColor="#131313"
+                                android:gravity="center"
+                                tools:ignore="HardcodedText"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/main_font"/>
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linear_ozon"
+                        android:layout_width="200dp"
+                        android:layout_height="120dp"
+                        android:padding="10dp"
+                        android:layout_marginStart="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:background="@drawable/background_ozon">
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:src="@drawable/ozonlogo"/>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/linear_sber"
+                        android:layout_width="200dp"
+                        android:layout_height="120dp"
+                        android:padding="10dp"
+                        android:layout_marginStart="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:background="@drawable/background_sber">
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:src="@drawable/sberlogo"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Категории"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#B7B7B7"
+                android:gravity="end"
+                tools:ignore="HardcodedText"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/main_font"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:id="@+id/image_food"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/icon_food"
+                    android:padding="10dp"
+                    android:background="@drawable/background_choose"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:id="@+id/image_pc"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/icon_pc"
+                    android:padding="10dp"
+                    android:background="@drawable/background_choose"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:id="@+id/image_teck"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/icon_cafe"
+                    android:padding="10dp"
+                    android:background="@drawable/background_choose"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:id="@+id/image_medic"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/icon_medic"
+                    android:padding="10dp"
+                    android:background="@drawable/background_choose"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:id="@+id/image_close"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/icon_food"
+                    android:padding="10dp"
+                    android:background="@drawable/background_choose"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:id="@+id/image_flex"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/icon_more"
+                    android:padding="15dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Наши товары"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#B7B7B7"
+                android:gravity="end"
+                tools:ignore="HardcodedText"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/main_font"/>
+
+            <ListView
+                android:id="@+id/listProduct"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="8dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

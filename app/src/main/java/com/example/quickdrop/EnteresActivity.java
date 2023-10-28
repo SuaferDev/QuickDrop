@@ -83,10 +83,9 @@ public class EnteresActivity extends AppCompatActivity {
     private void loginUser(String email, String password){
         auth.signInWithEmailAndPassword(email , password).addOnCompleteListener(task -> {
             if (task.isSuccessful()){
+                UserData.getInstance().setLogin(email);
                 Toast.makeText(EnteresActivity.this, "Мы рады Вас видеть", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(EnteresActivity.this , ProfileActivity.class);
-                intent.putExtra("user_email", email);
-                intent.putExtra("user_password", password);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();

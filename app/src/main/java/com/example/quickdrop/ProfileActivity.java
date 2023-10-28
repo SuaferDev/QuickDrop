@@ -9,9 +9,13 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,11 +26,15 @@ import java.util.List;
 
 public class ProfileActivity extends AppCompatActivity {
 
+    private Intent i = new Intent();
     private String userEmail;
     private final List<PayType> payTypeList = new ArrayList<>();
     private final List<Order> orderHistory = new ArrayList<>();
     private final List<Order> orderList = new ArrayList<>();
+
+    private final List<Adress> adressList = new ArrayList<>();
     private ListView list1, listOrder;
+    private boolean status = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +46,11 @@ public class ProfileActivity extends AppCompatActivity {
         TextView text_order_history = findViewById(R.id.text_order_history);
         TextView text_active_order = findViewById(R.id.text_active_order);
         TextView text_check = findViewById(R.id.text_check);
+        ImageView image_setting = findViewById(R.id.image_basket);
         list1 = findViewById(R.id.list1);
         listOrder = findViewById(R.id.listOrder);
 
-        Intent i = getIntent();
-        if(i!=null && i.hasExtra("user_email")){userEmail = i.getStringExtra("user_email");}
-        getIntent().getStringExtra("user_email");
+        userEmail = UserData.getInstance().getLogin();
 
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
@@ -54,6 +61,9 @@ public class ProfileActivity extends AppCompatActivity {
                             String name = snapshot.child("name").getValue(String.class);
                             String surname = snapshot.child("surname").getValue(String.class);
                             text_name.setText(String.valueOf(name+" "+ surname));
+                            text_name.setTextColor(0xFFFFFFFF);
+                            text_name.setBackgroundColor(0xFF131313);
+
                             DataSnapshot d = snapshot.child("paytype");
                             for (DataSnapshot ds : d.getChildren()) {
                                 PayType payType = ds.getValue(PayType.class);
@@ -65,10 +75,11 @@ public class ProfileActivity extends AppCompatActivity {
                             list1.setAdapter(adapter);
 
                             DataSnapshot oO = snapshot.child("order");
+                            Toast.makeText(ProfileActivity.this, String.valueOf(payTypeList.size()) , Toast.LENGTH_SHORT).show();
                             for (DataSnapshot ds : oO.getChildren()) {
-                                Order payType = ds.getValue(Order.class);
-                                if (payType != null) {
-                                    orderList.add(payType);
+                                Order order = ds.getValue(Order.class);
+                                if (order != null) {
+                                    orderList.add(order);
                                 }
                             }
                             CustomOrderAdapter adapterOrder = new CustomOrderAdapter(ProfileActivity.this, orderList);
@@ -81,8 +92,19 @@ public class ProfileActivity extends AppCompatActivity {
                                     orderList.add(payType);
                                 }
                             }
-                            if(orderHistory.isEmpty()){
+                            if(orderList.isEmpty()){
                                 text_check.setText("Заказов нет");
+                            }else{
+                                text_check.setText("");
+                            }
+
+
+                            DataSnapshot oA = snapshot.child("adress");
+                            for (DataSnapshot ds : oA.getChildren()) {
+                                Adress payType = ds.getValue(Adress.class);
+                                if (payType != null) {
+                                    adressList.add(payType);
+                                }
                             }
                         }
                     }
@@ -94,7 +116,7 @@ public class ProfileActivity extends AppCompatActivity {
                 });
 
         text_order_history.setOnClickListener(view ->{
-            CustomOrderAdapter adapterOrder = new CustomOrderAdapter(ProfileActivity.this, orderList);
+            CustomOrderAdapter adapterOrder = new CustomOrderAdapter(ProfileActivity.this, orderHistory);
             listOrder.setAdapter(adapterOrder);
             text_order_history.setTextColor(0xFF131313);
             text_order_history.setBackgroundResource(R.drawable.button_background);
@@ -102,7 +124,10 @@ public class ProfileActivity extends AppCompatActivity {
             text_active_order.setBackgroundColor(0xFF131313);
             if(orderHistory.isEmpty()){
                 text_check.setText("Заказов нет");
+            }else{
+                text_check.setText("");
             }
+            status = false;
         });
 
         text_active_order.setOnClickListener(view ->{
@@ -114,9 +139,27 @@ public class ProfileActivity extends AppCompatActivity {
             text_order_history.setBackgroundColor(0xFF131313);
             if(orderList.isEmpty()){
                 text_check.setText("Заказов нет");
+            }else{
+                text_check.setText("");
             }
+            status = true;
 
         });
+        image_setting.setOnClickListener(view ->{
+            i.setClass(getApplicationContext(), WhereMyOrderActivity.class);
+            startActivity(i);
+        });
+
+        listOrder.setOnItemClickListener((parent, view, position, id) -> {
+            if(status){
+                Intent intent = new Intent(ProfileActivity.this , WhereMyOrderActivity.class);
+                intent.putExtra("time", orderList.get(position).getTime());
+                intent.putExtra("status", orderList.get(position).getStatus());
+                startActivity(intent);
+            }
+        });
+
+
 
     }
 
